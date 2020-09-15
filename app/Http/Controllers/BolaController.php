@@ -11,8 +11,10 @@ class BolaController extends Controller
         $p = 3.14;
         $r = $request->input('r');
         $result = $first * $p * $r * $r * $r;
-
-        return redirect('/bola')->with('bola', 'Jawabannya :'.' '.$result);
-
+        if($result == 0){
+            return redirect('/bola')->with('bola', 'Masukkan angka yang valid'); 
+        } else {
+            return redirect('/bola')->with('bola', 'Jawabannya :'.' '.$result);
+        }
     }
 }
